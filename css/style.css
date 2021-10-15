@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Noto+Sans+JP:wght@100&display=swap');
+
+body{
+    background: url("../img/desarrollo.jpg") no-repeat center top;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: 'Montserrat';
+}
+
+.container{
+    width: 320px;
+    height: 420px;
+    background-color: black;
+    color: white;
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.container .avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top:-50px;
+    left: calc(50% - 50px);
+}
+
+.container h1{
+    margin: 0;
+    padding: 0px 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.container label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.container input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.container input[type ="text"],
+.container input[type ="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+}
+
+.container input[type = "submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #eec407;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.container a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.container a:hover{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: white;
+}
+
+.modal-title{
+    font-size: 35px;
+}
+
+/*.modal-body input,
+.modal-body select{
+    margin: 10px 5px 5px 5px; 
+    background: transparent;
+    border:  1px solid black;
+    border-radius: 5px;
+}
+
+.modal-body .long-input{
+    width: 83%; 
+}*/
+
+.modal .btn{
+    border:none;
+    outline: none;
+    height: 40px;
+    background: black;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.modal .btn:hover{
+    outline: none;
+    color: black;
+    height: 40px;
+    background: #eec407;
+    font-size: 18px;
+    border-radius: 20px;
+}
