@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Noto+Sans+JP:wght@100&display=swap');
+
+body{
+    font-family: 'Montserrat';
+}
+
+.global-div{
+    /*border: 1px solid black;*/
+    box-shadow: -3px 3px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.global-div .h1{
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.div-email{
+    margin: 10px 0px 10px 0px;
+}
+
+.button-div button{
+    margin:10px;
+}
+
+.btn-cancel{
+    background: lightgray;
+    color: black;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.btn-search{
+    border: none;
+    background: #eec407;
+    font-size: 18px;
+}
