@@ -121,3 +121,17 @@ func checkUserLogged() (bool) {
 		return false
 	}
 }
+
+func logoutUser() (int) {
+	if(checkUserLogged()) {
+		user_logged.Username = ""
+		user_logged.Firstname = ""
+		user_logged.Lastname = ""
+		user_logged.Password = ""
+		user_logged.Email = ""
+		user_logged.Country = ""
+		return 1
+	} else {
+		return 0
+	}
+}
