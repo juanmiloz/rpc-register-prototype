@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar w/ text</a>
+          <a class="navbar-brand" href="#"><img src="https://pbs.twimg.com/profile_images/493847405670850561/qslkfHlq.jpeg" alt="RPC_Logo" width="50" height="50" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -24,7 +24,7 @@
                 <a class="nav-link" href="competitionPage.html">Competitions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                <a class="nav-link active" aria-current="page" href="/userProfile">Profile</a>
               </li>
             </ul>
             <span class="navbar-text">
@@ -34,17 +34,57 @@
         </div>
     </nav>
 
-    <div class="d-flex ">
-        <div class="col-md-4 bg-info "><img src="icons/perfil.png" width="200" height="200" class="center"></div>
+    <div class="d-flex">
+        <div class="col-md-3 bg-info">
+          <img src="icons/perfil.png" width="200" height="200" class="img-fluid mx-auto d-block my-1">
+        </div>
         <div class="w-100 p-4 bg-white ">
-            <span><h1>Nickname user</h1></span><br>
-            <img src="icons/name.png" width="25" height="25"> <span>firstName + lastName</span><br>
-            <img src="icons/email.png" width="25" height="25"><spna>  email</spna><br>
-            <img src="icons/localization.png" width="25" height="25"><span>country</span><br>
+            <span><h1>{{ .user_logged.Username }}</h1></span><br>
+            <img src="icons/name.png" width="25" height="25"> <span>{{ .user_logged.Firstname }} {{ .user_logged.Lastname }}</span><br>
+            <img src="icons/email.png" width="25" height="25"><spna>{{ .user_logged.Email }}</spna><br>
+            <img src="icons/localization.png" width="25" height="25"><span>{{ .user_logged.Country }}</span><br>
             
         </div>
     </div>
     
-
+    <div class="mt-3">
+      <div id="current_competitions bg-light">
+        <span class="center"><h3>Current Competitions</h3></span>
+        <div class="d-flex justify-content-center bg-light col-md-12 row">
+          <div class="card col-4 mx-1" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Competicion 1</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+          <div class="card col-4 mx-1" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Competicion 2</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+          <div class="card col-4 mx-1" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Competicion 3</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+          <div class="card col-4 mx-1" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Competicion 3</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
 </body>
 </html>

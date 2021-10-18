@@ -11,14 +11,16 @@ import (
 
 func main(){
 	router := gin.Default()
-	router.LoadHTMLFiles("../login.html", "../recoverPassword.html", "../homePage.html")
+	router.LoadHTMLFiles("../login.html", "../recoverPassword.html", "../homePage.html", "../profilePage.html")
 	router.Static("/css", "../css")
 	router.Static("/img", "../img")
 	router.Static("/js", "../js")
+	router.Static("/icons", "../icons")
 	router.GET("/", loadMainPage)
 	router.POST("/register", registerNewUser)
 	router.POST("/login", loginProcessHandler)
 	router.GET("/userIndex", loadIndexPage)
+	router.GET("/userProfile", loadProfilePage)
 
 	router.Run("localhost:8080")
 }
@@ -47,7 +49,6 @@ func loadIndexPage(c *gin.Context) {
 			"message": " ",
 		})
 	}
-	
 }
 
 func registerNewUser(c *gin.Context) {
@@ -78,5 +79,18 @@ func loginProcessHandler(c *gin.Context) {
 		c.String(http.StatusOK, "2")
 	} else if (responseLogin == 3){
 		c.String(http.StatusOK, "3")
+	}
+}
+
+func loadProfilePage(c *gin.Context) {
+	if(checkUserLogged()) {
+		c.HTML(http.StatusOK, "profilePage.html", gin.H{
+			"message": " ",
+			"user_logged": user_logged,
+		})
+	} else {
+		c.HTML(http.StatusOK, "login.html", gin.H{
+			"message": " ",
+		})
 	}
 }
