@@ -98,3 +98,11 @@ func loginProcess(email string, password string) (int) {
 	}
 	return 0
 }
+
+func checkUserLogged() (bool) {
+	if (user_logged.Username != "") {
+		return true
+	} else {
+		return false
+	}
+}

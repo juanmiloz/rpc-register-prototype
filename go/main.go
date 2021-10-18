@@ -11,7 +11,7 @@ import (
 
 func main(){
 	router := gin.Default()
-	router.LoadHTMLFiles("../login.html", "../recoverPassword.html")
+	router.LoadHTMLFiles("../login.html", "../recoverPassword.html", "../homePage.html")
 	router.Static("/css", "../css")
 	router.Static("/img", "../img")
 	router.Static("/js", "../js")
@@ -24,13 +24,19 @@ func main(){
 }
 
 func loadMainPage(c *gin.Context) {
-	c.HTML(http.StatusOK, "login.html", gin.H{
-		"message": " ",
-	})
+	if(checkUserLogged()) {
+		c.HTML(http.StatusOK, "homePage.html", gin.H{
+			"message": " ",
+		})
+	} else {
+		c.HTML(http.StatusOK, "login.html", gin.H{
+			"message": " ",
+		})
+	}
 }
 
 func loadIndexPage(c *gin.Context) {
-	c.HTML(http.StatusOK, "recoverPassword.html", gin.H{
+	c.HTML(http.StatusOK, "homePage.html", gin.H{
 		"message": " ",
 	})
 }

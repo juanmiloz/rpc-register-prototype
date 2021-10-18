@@ -38,7 +38,7 @@ $(document).ready(function() {
     });
 
     async function redirectLogin() {
-        await sleep(6000);
+        await sleep(5000);
         window.location.replace("/userIndex");
     }
 
