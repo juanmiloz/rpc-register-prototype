@@ -12,14 +12,15 @@
     <div class = "container col-md-4">
         <img  class="avatar" src="img/logo.png">
         <h1>Log In</h1>
+        <span id="messages_login"></span>
         <form>
             <label for="mail">E-mail</label>
-            <input type="text" placeholder="Enter e-mail">
+            <input type="text" placeholder="Enter e-mail" id="email_login">
             
             <label for="Password">Password</label>
-            <input type="password" placeholder="Enter password">
+            <input type="password" placeholder="Enter password" id="password_login">
 
-            <input type="submit" value="Log In">
+            <input type="button" value="Log In" id="submit_login_form_btn">
             <a href="recoverPassword.html">Lost your password</a><br>
             <a href="#" data-toggle="modal" data-target="#exampleModal">Don't have an account?</a>
         </form>
@@ -36,27 +37,28 @@
             </button>
             </div>
             <div class="modal-body">
+                <span id="messages"></span>
                 <form class="row g-2">
                     <div class="col-md-6">
-                        <input type="text" placeholder="First name" class="form-control">
+                        <input type="text" placeholder="First name" class="form-control" id="firstname_register">
                     </div>
                     <div class="col-md-6">
-                        <input type="text" placeholder="Last name" class="form-control">    
+                        <input type="text" placeholder="Last name" class="form-control" id="lastname_register">    
                     </div>
                     <div class="col-md-12">
-                        <input type="text" placeholder="E-mail" class="form-control">
+                        <input type="text" placeholder="E-mail" class="form-control" id="email_register">
                     </div>
                     <div class="col-md-12">
-                        <input type="text" placeholder="Nickname" class="form-control">
+                        <input type="text" placeholder="Username" class="form-control" id="username_register">
                     </div>
                     <div class="col-md-6">
-                        <input type="password" placeholder="Password" class="form-control">
+                        <input type="password" placeholder="Password" class="form-control" id="password_register">
                     </div>
                     <div class="col-md-6">
-                        <input type="password" placeholder="Confirm password" class="form-control">
+                        <input type="password" placeholder="Confirm password" class="form-control" id="confirm_password_register">
                     </div>
                     <div class="col-md-12">
-                        <select name="select" class="form-select">
+                        <select name="select" class="form-select" id="country_register">
                             <option value="Afghanistan">Afghanistan</option>
                             <option value="Åland Islands">Åland Islands</option>
                             <option value="Albania">Albania</option>
@@ -307,12 +309,17 @@
             </div>
             <div class="modal-footer">
             <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-            <button type="button" class="btn btn-primary mx-auto">Register</button>
+            <button type="button" class="btn btn-primary mx-auto" id="submit_register_form_btn">Register</button>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
 </html>
