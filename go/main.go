@@ -11,7 +11,7 @@ import (
 
 func main(){
 	router := gin.Default()
-	router.LoadHTMLFiles("../login.html", "../recoverPassword.html", "../homePage.html", "../profilePage.html")
+	router.LoadHTMLFiles("../login.html", "../recoverPassword.html", "../homePage.html", "../profilePage.html", "../competitionPage.html")
 	router.Static("/css", "../css")
 	router.Static("/img", "../img")
 	router.Static("/js", "../js")
@@ -21,6 +21,8 @@ func main(){
 	router.POST("/login", loginProcessHandler)
 	router.GET("/userIndex", loadIndexPage)
 	router.GET("/userProfile", loadProfilePage)
+	router.GET("/userCompetitions", loadCompetitiosPage)
+	router.POST("/logout", logoutHandler)
 
 	router.Run("localhost:8080")
 }
@@ -92,5 +94,26 @@ func loadProfilePage(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", gin.H{
 			"message": " ",
 		})
+	}
+}
+
+func loadCompetitiosPage(c *gin.Context) {
+	if(checkUserLogged()) {
+		c.HTML(http.StatusOK, "competitionPage.html", gin.H{
+			"message": " ",
+			"user_logged": user_logged,
+		})
+	} else {
+		c.HTML(http.StatusOK, "login.html", gin.H{
+			"message": " ",
+		})
+	}
+}
+
+func logoutHandler(c *gin.Context) {
+	if(logoutUser() == 1) {
+		c.String(http.StatusOK, "1")
+	} else {
+		c.String(http.StatusOK, "0")
 	}
 }
