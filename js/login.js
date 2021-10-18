@@ -3,6 +3,7 @@ $(document).ready(function() {
     $("#submit_login_form_btn").click(function() {
         var Email = $("#email_login").val();
         var Password = $("#password_login").val();
+        //test
 
         $("#message_login_alert").remove();
 
@@ -21,19 +22,24 @@ $(document).ready(function() {
                         $("#submit_login_form_btn").val('Log In');
                         if (response == "1") {
                             $("#messages_login").append("<div class='alert alert-success' role='alert' id='message_login_alert'> ¡You've logged successfully, you'll be redirected in a few seconds! </div>");
+                            $(".container").css("height","480px");
                             redirectLogin();
                         } else if (response == "2") {
                             $("#messages_login").append("<div class='alert alert-info' role='alert' id='message_login_alert'> ¡Do not exists an account with that email! </div>");
+                            $(".container").css("height","480px");
                         } else if (response == "3") {
                             $("#messages_login").append("<div class='alert alert-danger' role='alert' id='message_login_alert'> ¡Incorrect password! </div>");
+                            $(".container").css("height","480px");
                         }
                     }
                 });
             } else {
                 $("#messages_login").append("<div class='alert alert-warning' role='alert' id='message_register_alert'> ¡That is not a valid email! </div>");
+                $(".container").css("height","480px");
             }
         } else {
             $("#messages_login").append("<div class='alert alert-danger' role='alert' id='message_register_alert'> ¡You have to fill all the fields below! </div>");
+            $(".container").css("height","480px");
         }
     });
 
