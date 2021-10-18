@@ -1,7 +1,10 @@
 package main
 
 //import "errors"
-import "log"
+import (
+	"log"
+	"golang.org/x/crypto/bcrypt"
+)
 
 type User struct {
 	Username        string `json:"username"`
@@ -37,7 +40,14 @@ func createNewUser(user User) (error, int) {
 	}
 	defer stmt.Close()
 
-	_, err = stmt.Exec(user.Username, user.Email, user.Firstname, user.Lastname, user.Password, user.Country)
+	password_byte := []byte(user.Password)
+	bcrypt_password, err := bcrypt.GenerateFromPassword(password_byte, bcrypt.DefaultCost)
+    if err != nil {
+        panic(err)
+    }
+    log.Println(string(bcrypt_password))
+
+	_, err = stmt.Exec(user.Username, user.Email, user.Firstname, user.Lastname, bcrypt_password, user.Country)
 	if err != nil{
 		return err, 0
 	}
@@ -86,7 +96,12 @@ func loginProcess(email string, password string) (int) {
 	err := row.Scan(&user_finded.Username, &user_finded.Email, &user_finded.Firstname, &user_finded.Lastname, &user_finded.Password, &user_finded.Country)
 	if(user_finded.Password == "") {
 		return 2
-	} else if(user_finded.Password == password) {
+	}
+	
+	user_finded_password := []byte(user_finded.Password)
+	password_byte_login := []byte(password)
+	err = bcrypt.CompareHashAndPassword(user_finded_password, password_byte_login)
+	if(err == nil) {
 		user_logged = user_finded
 		return 1
 	} else {

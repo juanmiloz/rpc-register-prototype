@@ -27,6 +27,7 @@ func loadMainPage(c *gin.Context) {
 	if(checkUserLogged()) {
 		c.HTML(http.StatusOK, "homePage.html", gin.H{
 			"message": " ",
+			"user_logged": user_logged,
 		})
 	} else {
 		c.HTML(http.StatusOK, "login.html", gin.H{
@@ -36,9 +37,17 @@ func loadMainPage(c *gin.Context) {
 }
 
 func loadIndexPage(c *gin.Context) {
-	c.HTML(http.StatusOK, "homePage.html", gin.H{
-		"message": " ",
-	})
+	if(checkUserLogged()) {
+		c.HTML(http.StatusOK, "homePage.html", gin.H{
+			"message": " ",
+			"user_logged": user_logged,
+		})
+	} else {
+		c.HTML(http.StatusOK, "login.html", gin.H{
+			"message": " ",
+		})
+	}
+	
 }
 
 func registerNewUser(c *gin.Context) {
