@@ -34,11 +34,11 @@ $(document).ready(function() {
                     }
                 });
             } else {
-                $("#messages_login").append("<div class='alert alert-warning' role='alert' id='message_register_alert'> ¡That is not a valid email! </div>");
+                $("#messages_login").append("<div class='alert alert-warning' role='alert' id='message_login_alert'> ¡That is not a valid email! </div>");
                 $(".container").css("height","480px");
             }
         } else {
-            $("#messages_login").append("<div class='alert alert-danger' role='alert' id='message_register_alert'> ¡You have to fill all the fields below! </div>");
+            $("#messages_login").append("<div class='alert alert-danger' role='alert' id='message_login_alert'> ¡You have to fill all the fields below! </div>");
             $(".container").css("height","480px");
         }
     });
